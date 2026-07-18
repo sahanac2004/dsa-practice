@@ -2,5 +2,6 @@
 
 | # | Problem | Difficulty | Technique | LC Link |
 |---|---------|------------|-----------|---------|
-| - | *(Add problems as you solve them)* | | | |
+| 1 | Two Sum | Easy | hashmap/complement | [LC #1](https://leetcode.com/problems/two-sum/) |
+| 2 | Best Time to Buy and Sell Stock | Easy | greedy/running-min | [LC #121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) |
 
