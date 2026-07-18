@@ -1,7 +1,7 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║  TWO SUM                                                         ║
-║  LeetCode #1  |  Difficulty: Easy  |  Topic: Arrays / Hashing   ║
+║  LeetCode #1  |  Difficulty: Easy  |  Topic: Arrays / Hashing    ║
 ║  Link: https://leetcode.com/problems/two-sum/                    ║
 ╚══════════════════════════════════════════════════════════════════╝
 
@@ -62,7 +62,7 @@
     → For n = 10⁴, that's 10⁸ operations → TLE
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- APPROACH 2 — OPTIMAL ✅
+ APPROACH 2 — OPTIMAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Idea: HashMap {value: index} — single pass
 
@@ -100,7 +100,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 Time      Space
   Brute Force   O(n²)     O(1)
-  Optimal       O(n)      O(n)    ← use this ✅
+  Optimal       O(n)      O(n)    ← use this
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PATTERN LEARNED
