@@ -1,9 +1,9 @@
 """
-╔══════════════════════════════════════════════════════════════════╗
-║  BEST TIME TO BUY AND SELL STOCK                                 ║
-║  LeetCode #121  |  Difficulty: Easy  |  Topic: Arrays / Greedy   ║
+╔═══════════════════════════════════════════════════════════════════════╗
+║  BEST TIME TO BUY AND SELL STOCK                                      ║
+║  LeetCode #121  |  Difficulty: Easy  |  Topic: Arrays / Greedy        ║
 ║  Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ ║
-╚══════════════════════════════════════════════════════════════════╝
+╚═══════════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  TECHNIQUE
@@ -73,7 +73,7 @@
     → For n = 10⁵ (LeetCode constraint), 10¹⁰ operations → TLE
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- APPROACH 2 — OPTIMAL ✅
+ APPROACH 2 — OPTIMAL 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Idea: Single pass, track min price seen so far + best profit
 
@@ -118,7 +118,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 Time      Space
   Brute Force   O(n²)     O(1)
-  Optimal       O(n)      O(1)    ← use this ✅
+  Optimal       O(n)      O(1)    ← use this 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PATTERN LEARNED
