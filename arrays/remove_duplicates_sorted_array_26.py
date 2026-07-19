@@ -1,8 +1,8 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║  CONTAINS DUPLICATE                                              ║
-║  LeetCode #217  |  Difficulty: Easy  |  Topic: Arrays / Hashing  ║
-║  Link: https://leetcode.com/problems/contains-duplicate/         ║
+║  REMOVE DUPLICATES FROM SORTED ARRAY                             ║
+║  LeetCode #26  |  Difficulty: Easy  |  Topic: Arrays / Two Pointers ║
+║  Link: https://leetcode.com/problems/remove-duplicates-from-sorted-array/ ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -13,213 +13,217 @@
 
   ಹಂತ 1 — Problem ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳಿ (What are they asking?)
   ┌─────────────────────────────────────────────────────────┐
-  │  Input ಏನು ಕೊಡ್ತಾರೆ?  →  integers array nums               │
-  │  Output ಏನು ಬೇಕು?     →  ಯಾವುದಾದ್ರೂ value 2 ಸಲ          │
-  │                          repeat ಆಗಿದ್ಯಾ ಅಂತ True/False   │
-  │  Constraints ಏನಿದೆ?   →  order ಮ್ಯಾಟರ್ ಆಗಲ್ಲ, ಬರೀ          │
-  │                          existence ಮಾತ್ರ ಕೇಳ್ತಾರೆ           │
+  │  Input ಏನು ಕೊಡ್ತಾರೆ?  →  SORTED array, duplicates ಇರೋದು │
+  │  Output ಏನು ಬೇಕು?     →  unique elements count k, ಮತ್ತು  │
+  │                          array ನ ಮೊದಲ k slots ಲ್ಲಿ ಅವೇ    │
+  │  Constraints ಏನಿದೆ?   →  IN-PLACE, O(1) extra space      │
   └─────────────────────────────────────────────────────────┘
 
   ಹಂತ 2 — ನನಗೆ ಗೊತ್ತಿರೋ simple way ಏನು? (Brute force thought)
-  →  ಪ್ರತಿ pair (i, j) ಗೂ compare ಮಾಡಿ ಒಂದೇ value ಇದ್ಯಾ ಅಂತ
-     check ಮಾಡೋದು.
-  →  ಆದರೆ ಇದು slow ಯಾಕೆ? → n=10^5 ಆದ್ರೆ n² comparisons, TLE.
+  →  ಒಂದು set ಗೆ ಎಲ್ಲಾ unique values ಸೇರಿಸಿ, ಸಾರ್ಟ್ ಮಾಡಿ,
+     ಮೂಲ array ಗೆ copy ಮಾಡೋದು.
+  →  ಆದರೆ ಇದು ಯಾಕೆ enough ಅಲ್ಲ? → extra space ಬೇಕಾಗುತ್ತೆ, array
+     ಈಗಾಗಲೇ sorted ಇರೋ advantage ಬಳಸ್ತಿಲ್ಲ.
 
   ಹಂತ 3 — Better way ಹೇಗೆ ಯೋಚಿಸುವುದು? (Optimization thought)
-  →  "ಪ್ರತಿ number ನೋಡಿದಾಗ, ಇದನ್ನ ಮೊದಲೇ ನಾನು ನೋಡಿದ್ದೀನಾ ಅಂತ
-     ಗೊತ್ತಾದ್ರೆ ಸಾಕಲ್ವಾ? ಪೂರ್ತಿ ಪೇರ್ compare ಯಾಕೆ ಬೇಕು?"
-  →  ಅಹಾ moment: ಒಂದು HashSet ನಲ್ಲಿ "ಇಷ್ಟರ ವರೆಗೆ ನಾನು ಕಂಡಿದ್ದು"
-     ಅನ್ನ store ಮಾಡ್ತಾ ಹೋದ್ರೆ, O(1) ನಲ್ಲಿ "ಇದು ಮೊದಲೇ ಇತ್ತಾ" ಅಂತ
-     ಗೊತ್ತಾಗುತ್ತೆ.
-  →  ಇದರಿಂದ ನಾವು HashSet Seen-Before Lookup use ಮಾಡಬಹುದು!
+  →  "Array ಈಗಾಗಲೇ sorted ಇದೆ ಅಂದ್ರೆ, duplicates ಯಾವಾಗ್ಲೂ
+     ADJACENT ಆಗಿ ಇರ್ತಾವಲ್ಲ? ಹಾಗಾದ್ರೆ set ಯಾಕೆ ಬೇಕು?"
+  →  ಅಹಾ moment: ಪ್ರತಿ number ಅನ್ನ ಕೊನೆಯ WRITTEN unique value
+     ಜೊತೆ ಮಾತ್ರ compare ಮಾಡಿದ್ರೆ ಸಾಕು — ಬೇರೆ ಎಲ್ಲೂ ಹೋಲಿಸೋ
+     ಅಗತ್ಯ ಇಲ್ಲ.
+  →  ಇದರಿಂದ ನಾವು Two Pointers Same-Direction (compare-to-last-written)
+     use ಮಾಡಬಹುದು!
 
   ಹಂತ 4 — Technique ಯಾಕೆ ಇಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತೆ?
-  →  Question ಬರೀ EXISTENCE ("ಇದ್ಯಾ?") ಕೇಳ್ತಿದೆ, pairing ಅಥವಾ
-     counting ಬೇಕಿಲ್ಲ — HashSet ಗೆ ಇದು perfect fit.
-  →  Order matter ಆಗಲ್ಲ ಅಂದ್ರೆ sorting ಬೇಕಿಲ್ಲ, direct membership
-     check ಸಾಕು.
-  →  O(n) time ಬೇಕು ಅಂದಾಗ HashSet ಮೊದಲು ಯೋಚಿಸಬೇಕು.
+  →  Array SORTED ಆಗಿರೋದ್ರಿಂದ duplicates adjacent ಆಗಿರ್ತಾವೆ —
+     hashset ಬೇಕಿಲ್ಲ.
+  →  In-place, O(1) space constraint ಇರೋದ್ರಿಂದ, write/read
+     two-pointer skeleton ಮತ್ತೆ perfect fit.
+  →  Order preserve ಮಾಡ್ಬೇಕು ಅಂದ್ರೂ ಸಮಸ್ಯೆ ಇಲ್ಲ, sorted array
+     ಆಗಿರೋದ್ರಿಂದ order already correct ಇರುತ್ತೆ.
 
   💡 Interview ನಲ್ಲಿ ಹೇಗೆ ಮಾತಾಡಬೇಕು (Think out loud):
-  →  "So I just need to know if ANY value repeats, not where."
-  →  "The brute force checks every pair — O(n²)."
-  →  "I notice this is a pure existence check, so a HashSet gives
-      me O(1) average membership testing in a single pass."
+  →  "Since the array is sorted, duplicates are always adjacent."
+  →  "The brute force would use a set — extra space, doesn't
+      exploit sortedness."
+  →  "I can compare each element to the LAST written unique value
+      instead, using a write/read two-pointer pattern."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🏷️ TECHNIQUE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Primary   : HashSet → Seen-Before Lookup
-  Secondary : Sorting (alternative, adjacent-duplicate check)
+  Primary   : Two Pointers → Same Direction (Partition Style)
+  Secondary : Sorted array property (duplicates are ADJACENT)
 
-  WHY HashSet?
-  → Pure existence question — no indices, no pairing
-  → O(1) average "have I seen this before?" checks
-  → Simpler cousin of the complement-lookup pattern from Two Sum
+  WHY this technique?
+  → SORTED array means duplicates sit next to each other — no
+    hashset needed to detect repeats
+  → `write` pointer for next unique slot, `read` scans forward
+  → Same write/read partition skeleton as Move Zeroes (#283)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  📘 PROBLEM UNDERSTANDING
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given an integer array nums, return True if any value appears
-  at least twice, and False if every element is distinct.
+  Given a sorted array nums, remove duplicates IN-PLACE so each
+  unique element appears once. Return k = number of unique
+  elements; the first k slots must hold them in order.
 
-  Input : nums = [1, 2, 3, 1]
-  Output: True
+  Input : nums = [1, 1, 2, 2, 3]
+  Output: k = 3, nums[:3] = [1, 2, 3]
 
   Example 1 — basic:
-    Input : nums = [1, 2, 3, 1]
-    Output: True
-    Why?  : 1 appears at index 0 AND index 3
+    Input : nums = [1, 1, 2, 2, 3]
+    Output: k=3, nums[:3] = [1, 2, 3]
+    Why?  : unique values are 1, 2, 3 — placed at the front
 
   Example 2 — slightly tricky:
-    Input : nums = [1, 2, 3, 4]
-    Output: False
-    Why?  : all elements are distinct
+    Input : nums = [1, 1, 1, 1]
+    Output: k=1, nums[:1] = [1]
+    Why?  : only one unique value exists
 
   Constraints:
-    - 1 <= nums.length <= 10⁵
-    - Values can repeat any number of times, order doesn't matter
+    - nums is already SORTED in non-decreasing order
+    - Must modify in-place, O(1) extra space
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Do I need to compare every PAIR, or can I remember what I've
-  already visited and check membership as I go?
+  Since the array is sorted, can I just compare each element to
+  the LAST unique value I wrote, instead of searching a whole set?
 
   The journey from brute to optimal:
-    Brute thought   →  compare every pair (i, j)
-    Problem with it →  O(n²), too slow for n=10⁵
-    Better question →  "can I just check 'seen before' in O(1)?"
-    Insight         →  HashSet membership check is O(1) average
-    Optimal         →  single pass, HashSet of seen values
+    Brute thought   →  use a set, sort, copy back
+    Problem with it →  O(n) extra space, ignores sortedness
+    Better question →  "compare to last written, not a whole set?"
+    Insight         →  sortedness guarantees duplicates are adjacent
+    Optimal         →  write/read two pointers, O(1) space
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🐢 APPROACH 1 — BRUTE FORCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Idea:
-    Compare every pair (i, j) where i ≠ j.
+    Collect unique values with a set, sort, copy back.
 
   Pseudocode:
-    step 1: for i in range(n):
-    step 2:     for j in range(i+1, n):
-    step 3:         if nums[i] == nums[j] → return True
+    step 1: unique = sorted(set(nums))
+    step 2: for i, v in enumerate(unique): nums[i] = v
+    step 3: return len(unique)
 
-  Time  : O(n²)  →  Why: nested loops over all pairs
-  Space : O(1)   →  Why: no extra space
+  Time  : O(n log n)  →  Why: set + sort
+  Space : O(n)  →  Why: extra set/list
 
   ಇದು ಯಾಕೆ ಸಾಕಾಗಲ್ಲ? (Why is this not enough?)
-    → n = 10⁵ ಆದ್ರೆ ~10¹⁰ comparisons → TLE.
+    → Problem O(1) extra space ಕೇಳ್ತಿದೆ; ಇದು O(n) ಬಳಸುತ್ತೆ.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 🚶 APPROACH 2 — BETTER (Sort First)
+ 🚶 APPROACH 2 — BETTER (skip — brute jumps straight to optimal)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Idea:
-    Sort the array — duplicates land next to each other, then
-    scan once checking nums[i] == nums[i-1].
-
-  Time  : O(n log n)  — sorting dominates
-  Space : O(1) extra  — if in-place sort allowed
-
-  ಇನ್ನೂ better ಮಾಡಬಹುದಾ? → ಹೌದು — sorting ಬೇಡ, HashSet ಆದ್ರೆ
-  O(n) ಗೆ ಬರುತ್ತೆ.
+  ಇಲ್ಲಿ intermediate approach ಇಲ್ಲ — sortedness ಬಳಸಿದ ತಕ್ಷಣ
+  ನೇರವಾಗಿ O(n) optimal ಗೆ ಹೋಗಬಹುದು.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🚀 APPROACH 3 — OPTIMAL  
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Idea:
-    Single pass with a HashSet of values seen so far.
+    Two pointers, same direction — write only on a new unique value.
 
   Key steps:
-    1. seen = empty set
-    2. For each num in nums:
-         a. If num already in seen → return True (duplicate found)
-         b. Otherwise, add num to seen
-    3. If loop finishes with no match → return False
+    1. If nums is empty → return 0
+    2. write = 0  (index 0 is trivially unique)
+    3. For read in range(1, n):
+         if nums[read] != nums[write]:
+             write += 1
+             nums[write] = nums[read]
+    4. Return write + 1  (count of unique elements)
 
   ಕನ್ನಡದಲ್ಲಿ ಒಂದು ಸಲ ಹೇಳಿ (Say it once in Kanglish so it sticks):
-    → "Array ಅನ್ನ ಒಮ್ಮೆ scan ಮಾಡ್ತಾ, ಪ್ರತಿ number ಗೂ ಅದು seen
-        set ನಲ್ಲಿ ಇದ್ಯಾ ಅಂತ ಚೆಕ್ ಮಾಡು. ಇದ್ರೆ True return ಮಾಡು,
-        ಇಲ್ಲಾಂದ್ರೆ set ಗೆ ಸೇರಿಸಿ ಮುಂದೆ ಹೋಗು."
+    → "read pointer ಅನ್ನ ಮುಂದೆ ಓಡಿಸ್ತಾ, ಪ್ರತಿ value ಅನ್ನ write
+        pointer ಇರೋ position ಜೊತೆ compare ಮಾಡು. ಬೇರೆ ಇದ್ರೆ, ಅದು
+        ಹೊಸ unique value — write++ ಮಾಡಿ ಅಲ್ಲಿ ಇಡು. ಒಂದೇ ಇದ್ರೆ,
+        duplicate — skip ಮಾಡು."
 
-  Time  : O(n)  →  Why: single pass, O(1) avg set operations
-  Space : O(n)  →  Why: set can hold up to n elements
+  Time  : O(n)  →  Why: single pass
+  Space : O(1)  →  Why: in-place, two pointers only
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🔍 DRY RUN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Input: nums = [1, 2, 3, 1]
+  Input: nums = [1, 1, 2, 2, 3]
 
-  num=1  →  variables: seen={}         →  1 not in seen → seen={1}
-  num=2  →  variables: seen={1}        →  2 not in seen → seen={1,2}
-  num=3  →  variables: seen={1,2}      →  3 not in seen → seen={1,2,3}
-  num=1  →  variables: seen={1,2,3}    →  1 IS in seen! → return True
+  write=0  (nums[0]=1 is the first unique)
 
-  Output: True
+  read=1  →  nums[1]=1 == nums[write]=1  →  duplicate, skip
+  read=2  →  nums[2]=2 != nums[write]=1  →  write=1, nums[1]=2 → [1,2,2,2,3]
+  read=3  →  nums[3]=2 == nums[write]=2  →  duplicate, skip
+  read=4  →  nums[4]=3 != nums[write]=2  →  write=2, nums[2]=3 → [1,2,3,2,3]
+
+  Output: k = write+1 = 3, nums[:3] = [1,2,3]
 
   ಇನ್ನೊಂದು example — tricky case:
-  Input: nums = [1, 2, 3, 4]
-  Every number is new → seen grows to {1,2,3,4}, loop ends, no match.
-  Output: False
+  Input: nums = [1, 1, 1, 1]
+  write=0
+  read=1,2,3 → all equal nums[write]=1 → always duplicate, skip
+  Output: k=1, nums[:1] = [1]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  ⚠️ EDGE CASES — ಇವನ್ನ ಮರೆಯಬೇಡ!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ✓ Single element?     →  [1] → False (nothing to duplicate against)
-  ✓ All same value?     →  [5,5,5,5] → True
-  ✓ Negative numbers?   →  [-1,-2,-1] → True
-  ✓ Duplicate at end?   →  [1,2,3,4,4] → True
-  ✓ Large distinct array?  →  False, must scan fully (worst case)
+  ✓ Empty array?               →  [] → k=0
+  ✓ Single element?            →  [5] → k=1, nums=[5]
+  ✓ All duplicates?            →  [2,2,2,2] → k=1, nums[:1]=[2]
+  ✓ No duplicates?             →  [1,2,3,4] → k=4, nums unchanged
+  ✓ Duplicates only at the end?  →  [1,2,3,3,3] → k=3, nums[:3]=[1,2,3]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  📊 COMPLEXITY SUMMARY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 Time        Space
-  Brute Force   O(n²)       O(1)
-  Sort First    O(n log n)  O(1)/O(n)
-  Optimal       O(n)        O(n)    ← use this  
+  Brute Force   O(n log n)  O(n)
+  Optimal       O(n)        O(1)    ← use this  
 
   Time ಯಾಕೆ O(n)?  → Array ಒಮ್ಮೆ ಮಾತ್ರ traverse ಮಾಡ್ತೇವೆ.
-  Space ಯಾಕೆ O(n)? → Worst case ಎಲ್ಲ n elements set ನಲ್ಲಿ ಹೋಗ್ತಾವೆ.
+  Space ಯಾಕೆ O(1)? → write, read ಎರಡು pointer variables ಸಾಕು.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🎯 PATTERN LEARNED — ಇದರಿಂದ ಕಲಿತದ್ದು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Pattern Name: HashSet Seen-Before Lookup
+  Pattern Name: Two Pointers — Compare to Last Written
 
   ಈ pattern ಯಾವಾಗ use ಮಾಡಬೇಕು?
-  → Question ಬರೀ "ಇದು ಮೊದಲೇ ಆಗಿತ್ತಾ?" ಅಂತ existence ಕೇಳ್ತಿದ್ರೆ
-  → Pairing ಅಥವಾ counting ಬೇಕಿಲ್ಲ, ಬರೀ membership ಸಾಕಾದಾಗ
+  → Array SORTED ಆಗಿದ್ದು, dedupe/compact in-place ಮಾಡ್ಬೇಕಾದಾಗ
+  → Hashset ಬದ್ಲು sortedness (adjacency) ಬಳಸ್ಬಹುದು ಅಂತ ಗೊತ್ತಾದಾಗ
 
   ಇದೇ pattern ಬೇರೆ problems ನಲ್ಲಿ ಕಾಣಿಸುತ್ತೆ:
-  → Longest Consecutive Sequence (#128)
-  → Happy Number
-  → Cycle detection in graphs (visited set)
+  → Remove Duplicates from Sorted Array II (allow up to 2 copies)
+  → Move Zeroes (#283) — same write/read skeleton
+  → Sort Colors (#75) — 3-way partition extension
 
   Next time ಇಂತಹ problem ಬಂದ್ರೆ ನಾನು ಮೊದಲು ಇದನ್ನ think ಮಾಡ್ತೇನೆ:
-  → "ಬರೀ 'ಇದ್ಯಾ ಇಲ್ಲವಾ' ಪ್ರಶ್ನೆ ಬಂತು ಅಂದ್ರೆ, HashSet ಮೊದಲು
-      ಯೋಚಿಸು — pairing ಗಿಂತ ಸುಲಭ."
+  → "Array sorted ಇದ್ಯಾ? ಇದ್ರೆ, hashset ಬದ್ಲು last-written
+      comparison ಸಾಕಾಗುತ್ತಾ ಅಂತ ಮೊದಲು ಯೋಚಿಸು."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🗣️ INTERVIEW ನಲ್ಲಿ ಹೇಗೆ EXPLAIN ಮಾಡಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   1. Understand:
-     "So I just need to know if ANY value appears twice — order
-      and position don't matter."
+     "So I need to dedupe a sorted array in-place and return the
+      count of unique elements."
 
   2. Brute force:
-     "The naive approach compares every pair — O(n²), which
-      would TLE for n up to 10⁵."
+     "I could use a set and sort — O(n log n), O(n) space — but
+      that ignores the fact the array is already sorted."
 
   3. Optimize:
-     "Since it's a pure existence check, I can use a HashSet to
-      test membership in O(1) average as I scan once."
+     "Since it's sorted, duplicates are adjacent. I can compare
+      each element only to the last WRITTEN unique value."
 
   4. Code:
-     "I'll keep a set of seen values; if the current number is
-      already in it, return True immediately."
+     "I'll keep a write pointer for the last unique slot and a
+      read pointer scanning forward, advancing write only on a
+      new value."
 
   5. Complexity:
-     "Time O(n) — one pass. Space O(n) — set can hold up to n items."
+     "Time O(n) — one pass. Space O(1) — in-place, two pointers."
 
   ಮುಖ್ಯ: ಸುಮ್ಮನೆ ಕೂತು code ಬರೆಯಬೇಡ!
          Interviewer ಗೆ ನಿನ್ನ thinking process ಕಾಣಬೇಕು.
@@ -227,29 +231,33 @@
 
 
 # ═══════════════════════════════════════════════════════════════════
-# BRUTE FORCE — O(n²) Time | O(1) Space
+# BRUTE FORCE — O(n log n) Time | O(n) Space
 # ═══════════════════════════════════════════════════════════════════
-def contains_duplicate_brute(nums):
-    """ಇದು ಮೊದಲ ಆಲೋಚನೆ — every pair compare, simple but slow"""
-    n = len(nums)
-    for i in range(n):
-        for j in range(i + 1, n):
-            if nums[i] == nums[j]:
-                return True
-    return False
+def remove_duplicates_brute(nums):
+    """ಇದು ಮೊದಲ ಆಲೋಚನೆ — set + sort + copy back, extra space"""
+    if not nums:
+        return 0
+    unique = sorted(set(nums))
+    for i, v in enumerate(unique):
+        nums[i] = v
+    return len(unique)
 
 
 # ═══════════════════════════════════════════════════════════════════
-# OPTIMAL — O(n) Time | O(n) Space
+# OPTIMAL — O(n) Time | O(1) Space
 # ═══════════════════════════════════════════════════════════════════
-def contains_duplicate(nums):
-    """ಇದು final answer — HashSet seen-before lookup, fast and clean"""
-    seen = set()
-    for num in nums:
-        if num in seen:
-            return True
-        seen.add(num)
-    return False
+def remove_duplicates(nums):
+    """ಇದು final answer — write/read pointer, compare to last written"""
+    if not nums:
+        return 0
+
+    write = 0
+    for read in range(1, len(nums)):
+        if nums[read] != nums[write]:
+            write += 1
+            nums[write] = nums[read]
+
+    return write + 1
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -260,15 +268,21 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")   # Windows cp1252 can't print   otherwise
 
     # Test 1 — Basic example
-    assert contains_duplicate([1, 2, 3, 1]) is True
+    nums1 = [1, 1, 2, 2, 3]
+    k1 = remove_duplicates(nums1)
+    assert (k1, nums1[:k1]) == (3, [1, 2, 3])
 
-    # Test 2 — Edge case: no duplicates
-    assert contains_duplicate([1, 2, 3, 4]) is False
+    # Test 2 — Edge case: empty array
+    assert remove_duplicates([]) == 0
 
-    # Test 3 — Edge case: single element
-    assert contains_duplicate([1]) is False
+    # Test 3 — Edge case: all duplicates
+    nums3 = [2, 2, 2, 2]
+    k3 = remove_duplicates(nums3)
+    assert (k3, nums3[:k3]) == (1, [2])
 
-    # Test 4 — Tricky: negative numbers
-    assert contains_duplicate([-1, -2, -1]) is True
+    # Test 4 — Tricky: duplicates only at the end
+    nums4 = [1, 2, 3, 3, 3]
+    k4 = remove_duplicates(nums4)
+    assert (k4, nums4[:k4]) == (3, [1, 2, 3])
 
     print("All tests passed!  ")

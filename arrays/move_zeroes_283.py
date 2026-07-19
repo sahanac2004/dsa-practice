@@ -1,8 +1,8 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║  CONTAINS DUPLICATE                                              ║
-║  LeetCode #217  |  Difficulty: Easy  |  Topic: Arrays / Hashing  ║
-║  Link: https://leetcode.com/problems/contains-duplicate/         ║
+║  MOVE ZEROES                                                     ║
+║  LeetCode #283  |  Difficulty: Easy  |  Topic: Arrays / Two Pointers ║
+║  Link: https://leetcode.com/problems/move-zeroes/                ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -13,213 +13,219 @@
 
   ಹಂತ 1 — Problem ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳಿ (What are they asking?)
   ┌─────────────────────────────────────────────────────────┐
-  │  Input ಏನು ಕೊಡ್ತಾರೆ?  →  integers array nums               │
-  │  Output ಏನು ಬೇಕು?     →  ಯಾವುದಾದ್ರೂ value 2 ಸಲ          │
-  │                          repeat ಆಗಿದ್ಯಾ ಅಂತ True/False   │
-  │  Constraints ಏನಿದೆ?   →  order ಮ್ಯಾಟರ್ ಆಗಲ್ಲ, ಬರೀ          │
-  │                          existence ಮಾತ್ರ ಕೇಳ್ತಾರೆ           │
+  │  Input ಏನು ಕೊಡ್ತಾರೆ?  →  numbers array (0 ಗಳು ಸಹಿತ)    │
+  │  Output ಏನು ಬೇಕು?     →  ಎಲ್ಲಾ 0 ಗಳನ್ನ ಕೊನೆಗೆ push      │
+  │                          ಮಾಡಿ, ಉಳಿದ numbers order         │
+  │                          ಹಾಗೇ ಇಟ್ಕೊಬೇಕು                  │
+  │  Constraints ಏನಿದೆ?   →  IN-PLACE ಮಾಡ್ಬೇಕು, extra        │
+  │                          array ಬಳಸೋ ಹಾಗಿಲ್ಲ                │
   └─────────────────────────────────────────────────────────┘
 
   ಹಂತ 2 — ನನಗೆ ಗೊತ್ತಿರೋ simple way ಏನು? (Brute force thought)
-  →  ಪ್ರತಿ pair (i, j) ಗೂ compare ಮಾಡಿ ಒಂದೇ value ಇದ್ಯಾ ಅಂತ
-     check ಮಾಡೋದು.
-  →  ಆದರೆ ಇದು slow ಯಾಕೆ? → n=10^5 ಆದ್ರೆ n² comparisons, TLE.
+  →  ಎಲ್ಲಾ non-zero values ಅನ್ನ ಒಂದು ಹೊಸ list ಗೆ ಹಾಕಿ, ಆಮೇಲೆ
+     0 ಗಳಿಂದ pad ಮಾಡಿ, ಆ list ಅನ್ನ ಮೂಲ array ಗೆ copy ಮಾಡೋದು.
+  →  ಆದರೆ ಇದು ಯಾಕೆ enough ಅಲ್ಲ? → extra O(n) space ಬಳಸ್ತೀವಿ,
+     ಆದ್ರೆ problem in-place, O(1) space ಕೇಳ್ತಿದೆ.
 
   ಹಂತ 3 — Better way ಹೇಗೆ ಯೋಚಿಸುವುದು? (Optimization thought)
-  →  "ಪ್ರತಿ number ನೋಡಿದಾಗ, ಇದನ್ನ ಮೊದಲೇ ನಾನು ನೋಡಿದ್ದೀನಾ ಅಂತ
-     ಗೊತ್ತಾದ್ರೆ ಸಾಕಲ್ವಾ? ಪೂರ್ತಿ ಪೇರ್ compare ಯಾಕೆ ಬೇಕು?"
-  →  ಅಹಾ moment: ಒಂದು HashSet ನಲ್ಲಿ "ಇಷ್ಟರ ವರೆಗೆ ನಾನು ಕಂಡಿದ್ದು"
-     ಅನ್ನ store ಮಾಡ್ತಾ ಹೋದ್ರೆ, O(1) ನಲ್ಲಿ "ಇದು ಮೊದಲೇ ಇತ್ತಾ" ಅಂತ
-     ಗೊತ್ತಾಗುತ್ತೆ.
-  →  ಇದರಿಂದ ನಾವು HashSet Seen-Before Lookup use ಮಾಡಬಹುದು!
+  →  "ನಾನು ಒಂದು 'write' pointer ಇಟ್ಕೊಂಡು, next non-zero ಎಲ್ಲಿ
+     ಹೋಗಬೇಕು ಅಂತ track ಮಾಡಿದ್ರೆ, ಒಂದೇ pass ಲ್ಲಿ in-place ಮಾಡಕ್ಕಾಗುತ್ತಾ?"
+  →  ಅಹಾ moment: read pointer ಯಾವಾಗ non-zero ಕಂಡ್ರೂ, ಅದನ್ನ write
+     pointer position ಜೊತೆ swap ಮಾಡಿ write++ ಮಾಡಿದ್ರೆ, zeros
+     automatic ಆಗಿ ಬಲಕ್ಕೆ ಹೋಗ್ತಾವೆ.
+  →  ಇದರಿಂದ ನಾವು Two Pointers Same-Direction Partition use ಮಾಡಬಹುದು!
 
   ಹಂತ 4 — Technique ಯಾಕೆ ಇಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತೆ?
-  →  Question ಬರೀ EXISTENCE ("ಇದ್ಯಾ?") ಕೇಳ್ತಿದೆ, pairing ಅಥವಾ
-     counting ಬೇಕಿಲ್ಲ — HashSet ಗೆ ಇದು perfect fit.
-  →  Order matter ಆಗಲ್ಲ ಅಂದ್ರೆ sorting ಬೇಕಿಲ್ಲ, direct membership
-     check ಸಾಕು.
-  →  O(n) time ಬೇಕು ಅಂದಾಗ HashSet ಮೊದಲು ಯೋಚಿಸಬೇಕು.
+  →  In-place, O(1) space ಬೇಕು ಅನ್ನೋ constraint ಸ್ಟ್ರಾಂಗ್ signal —
+     two pointers ಇಲ್ಲಿ classic fit.
+  →  Relative order preserve ಮಾಡ್ಬೇಕು ಅಂದ್ರೆ, swap use ಮಾಡಿದ್ರೆ
+     order ಕೆಡಲ್ಲ.
+  →  write pointer ಯಾವಾಗ್ಲೂ "ಮುಂದಿನ correct position" ಅನ್ನ
+     represent ಮಾಡುತ್ತೆ.
 
   💡 Interview ನಲ್ಲಿ ಹೇಗೆ ಮಾತಾಡಬೇಕು (Think out loud):
-  →  "So I just need to know if ANY value repeats, not where."
-  →  "The brute force checks every pair — O(n²)."
-  →  "I notice this is a pure existence check, so a HashSet gives
-      me O(1) average membership testing in a single pass."
+  →  "So I need to push zeros to the end while keeping non-zero
+      order, in-place."
+  →  "The brute force builds a new array — O(n) extra space."
+  →  "I notice I can use a write pointer that only advances on
+      non-zero values, swapping as I scan — that's O(1) space."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🏷️ TECHNIQUE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Primary   : HashSet → Seen-Before Lookup
-  Secondary : Sorting (alternative, adjacent-duplicate check)
+  Primary   : Two Pointers → Same Direction (Partition Style)
+  Secondary : In-place swap
 
-  WHY HashSet?
-  → Pure existence question — no indices, no pairing
-  → O(1) average "have I seen this before?" checks
-  → Simpler cousin of the complement-lookup pattern from Two Sum
+  WHY this technique?
+  → Must be done IN-PLACE with no extra array
+  → `write` pointer marks where the next non-zero should go,
+    `read` pointer scans forward looking for non-zeros
+  → Same partition skeleton as Remove Duplicates (#26), Sort Colors
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  📘 PROBLEM UNDERSTANDING
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given an integer array nums, return True if any value appears
-  at least twice, and False if every element is distinct.
+  Given an array nums, move all 0's to the end while maintaining
+  the RELATIVE ORDER of the non-zero elements. Must be in-place.
 
-  Input : nums = [1, 2, 3, 1]
-  Output: True
+  Input : nums = [0, 1, 0, 3, 12]
+  Output: [1, 3, 12, 0, 0]
 
   Example 1 — basic:
-    Input : nums = [1, 2, 3, 1]
-    Output: True
-    Why?  : 1 appears at index 0 AND index 3
+    Input : nums = [0, 1, 0, 3, 12]
+    Output: [1, 3, 12, 0, 0]
+    Why?  : non-zeros (1, 3, 12) keep their relative order
 
   Example 2 — slightly tricky:
-    Input : nums = [1, 2, 3, 4]
-    Output: False
-    Why?  : all elements are distinct
+    Input : nums = [0, 0, 1]
+    Output: [1, 0, 0]
+    Why?  : the single non-zero moves all the way to the front
 
   Constraints:
-    - 1 <= nums.length <= 10⁵
-    - Values can repeat any number of times, order doesn't matter
+    - Must modify nums in-place (no returning a new array)
+    - Relative order of non-zero elements must be preserved
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Do I need to compare every PAIR, or can I remember what I've
-  already visited and check membership as I go?
+  Can I overwrite the array as I scan, using one pointer to track
+  where the NEXT non-zero belongs?
 
   The journey from brute to optimal:
-    Brute thought   →  compare every pair (i, j)
-    Problem with it →  O(n²), too slow for n=10⁵
-    Better question →  "can I just check 'seen before' in O(1)?"
-    Insight         →  HashSet membership check is O(1) average
-    Optimal         →  single pass, HashSet of seen values
+    Brute thought   →  build a new list of non-zeros, pad with 0s
+    Problem with it →  O(n) extra space, violates in-place
+    Better question →  "can write and read pointers do this in one pass?"
+    Insight         →  swap non-zero into write position, advance write
+    Optimal         →  two pointers, same direction, O(1) space
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🐢 APPROACH 1 — BRUTE FORCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Idea:
-    Compare every pair (i, j) where i ≠ j.
+    Collect non-zeros into a new list, then append zeros.
 
   Pseudocode:
-    step 1: for i in range(n):
-    step 2:     for j in range(i+1, n):
-    step 3:         if nums[i] == nums[j] → return True
+    step 1: result = [x for x in nums if x != 0]
+    step 2: result += [0] * (len(nums) - len(result))
+    step 3: nums[:] = result
 
-  Time  : O(n²)  →  Why: nested loops over all pairs
-  Space : O(1)   →  Why: no extra space
+  Time  : O(n)  →  Why: one pass to filter, one to pad
+  Space : O(n)  →  Why: extra array used
 
   ಇದು ಯಾಕೆ ಸಾಕಾಗಲ್ಲ? (Why is this not enough?)
-    → n = 10⁵ ಆದ್ರೆ ~10¹⁰ comparisons → TLE.
+    → Problem explicitly ಕೇಳ್ತಿದೆ in-place, O(1) extra space.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 🚶 APPROACH 2 — BETTER (Sort First)
+ 🚶 APPROACH 2 — BETTER (skip — brute jumps straight to optimal)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Idea:
-    Sort the array — duplicates land next to each other, then
-    scan once checking nums[i] == nums[i-1].
-
-  Time  : O(n log n)  — sorting dominates
-  Space : O(1) extra  — if in-place sort allowed
-
-  ಇನ್ನೂ better ಮಾಡಬಹುದಾ? → ಹೌದು — sorting ಬೇಡ, HashSet ಆದ್ರೆ
-  O(n) ಗೆ ಬರುತ್ತೆ.
+  ಇಲ್ಲಿ intermediate approach ಇಲ್ಲ — write/read pointer insight
+  ಸಿಕ್ಕ ತಕ್ಷಣ ನೇರವಾಗಿ in-place optimal ಗೆ ಹೋಗಬಹುದು.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🚀 APPROACH 3 — OPTIMAL  
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Idea:
-    Single pass with a HashSet of values seen so far.
+    Two pointers, same direction, swap non-zeros into place.
 
   Key steps:
-    1. seen = empty set
-    2. For each num in nums:
-         a. If num already in seen → return True (duplicate found)
-         b. Otherwise, add num to seen
-    3. If loop finishes with no match → return False
+    1. write = 0  (position where next non-zero should land)
+    2. For read in range(n):
+         if nums[read] != 0:
+             swap(nums[read], nums[write])
+             write += 1
+    3. Array is now correctly partitioned in-place
 
   ಕನ್ನಡದಲ್ಲಿ ಒಂದು ಸಲ ಹೇಳಿ (Say it once in Kanglish so it sticks):
-    → "Array ಅನ್ನ ಒಮ್ಮೆ scan ಮಾಡ್ತಾ, ಪ್ರತಿ number ಗೂ ಅದು seen
-        set ನಲ್ಲಿ ಇದ್ಯಾ ಅಂತ ಚೆಕ್ ಮಾಡು. ಇದ್ರೆ True return ಮಾಡು,
-        ಇಲ್ಲಾಂದ್ರೆ set ಗೆ ಸೇರಿಸಿ ಮುಂದೆ ಹೋಗು."
+    → "read pointer ಅನ್ನ full array ಮೇಲೆ ಓಡಿಸು. ಎಲ್ಲಿ non-zero
+        ಸಿಗುತ್ತೋ ಅಲ್ಲಿ, ಅದನ್ನ write pointer position ಜೊತೆ swap
+        ಮಾಡಿ write++ ಮಾಡು. Zero ಗಳು naturally ಬಲಕ್ಕೆ ಸರಿತಾವೆ."
 
-  Time  : O(n)  →  Why: single pass, O(1) avg set operations
-  Space : O(n)  →  Why: set can hold up to n elements
+  Time  : O(n)  →  Why: single pass
+  Space : O(1)  →  Why: in-place swaps only
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🔍 DRY RUN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Input: nums = [1, 2, 3, 1]
+  Input: nums = [0, 1, 0, 3, 12]
 
-  num=1  →  variables: seen={}         →  1 not in seen → seen={1}
-  num=2  →  variables: seen={1}        →  2 not in seen → seen={1,2}
-  num=3  →  variables: seen={1,2}      →  3 not in seen → seen={1,2,3}
-  num=1  →  variables: seen={1,2,3}    →  1 IS in seen! → return True
+  write=0
+  read=0  →  nums[0]=0 → skip
+  read=1  →  nums[1]=1 → swap(nums[1],nums[0]) → [1,0,0,3,12], write=1
+  read=2  →  nums[2]=0 → skip
+  read=3  →  nums[3]=3 → swap(nums[3],nums[1]) → [1,3,0,0,12], write=2
+  read=4  →  nums[4]=12 → swap(nums[4],nums[2]) → [1,3,12,0,0], write=3
 
-  Output: True
+  Output: [1, 3, 12, 0, 0]
 
   ಇನ್ನೊಂದು example — tricky case:
-  Input: nums = [1, 2, 3, 4]
-  Every number is new → seen grows to {1,2,3,4}, loop ends, no match.
-  Output: False
+  Input: nums = [0, 0, 1]
+  write=0
+  read=0  nums[0]=0 → skip
+  read=1  nums[1]=0 → skip
+  read=2  nums[2]=1 → swap(nums[2],nums[0]) → [1,0,0], write=1
+  Output: [1, 0, 0]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  ⚠️ EDGE CASES — ಇವನ್ನ ಮರೆಯಬೇಡ!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ✓ Single element?     →  [1] → False (nothing to duplicate against)
-  ✓ All same value?     →  [5,5,5,5] → True
-  ✓ Negative numbers?   →  [-1,-2,-1] → True
-  ✓ Duplicate at end?   →  [1,2,3,4,4] → True
-  ✓ Large distinct array?  →  False, must scan fully (worst case)
+  ✓ All zeros?               →  [0,0,0] → [0,0,0] (no change needed)
+  ✓ No zeros?                →  [1,2,3] → [1,2,3] (write chases read every step)
+  ✓ Single element?          →  [0] → [0]
+  ✓ Zeros already at end?    →  [1,2,0,0] → [1,2,0,0] (no-op swaps)
+  ✓ Zero only at the start?  →  [0,1,2] → [1,2,0]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  📊 COMPLEXITY SUMMARY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                Time        Space
-  Brute Force   O(n²)       O(1)
-  Sort First    O(n log n)  O(1)/O(n)
-  Optimal       O(n)        O(n)    ← use this  
+                Time      Space
+  Brute Force   O(n)      O(n)
+  Optimal       O(n)      O(1)    ← use this  
 
   Time ಯಾಕೆ O(n)?  → Array ಒಮ್ಮೆ ಮಾತ್ರ traverse ಮಾಡ್ತೇವೆ.
-  Space ಯಾಕೆ O(n)? → Worst case ಎಲ್ಲ n elements set ನಲ್ಲಿ ಹೋಗ್ತಾವೆ.
+  Space ಯಾಕೆ O(1)? → write, read ಎರಡು pointer variables ಸಾಕು.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🎯 PATTERN LEARNED — ಇದರಿಂದ ಕಲಿತದ್ದು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Pattern Name: HashSet Seen-Before Lookup
+  Pattern Name: Two Pointers — Same Direction Write/Read Partition
 
   ಈ pattern ಯಾವಾಗ use ಮಾಡಬೇಕು?
-  → Question ಬರೀ "ಇದು ಮೊದಲೇ ಆಗಿತ್ತಾ?" ಅಂತ existence ಕೇಳ್ತಿದ್ರೆ
-  → Pairing ಅಥವಾ counting ಬೇಕಿಲ್ಲ, ಬರೀ membership ಸಾಕಾದಾಗ
+  → Array ಅನ್ನ IN-PLACE reorder ಮಾಡ್ಬೇಕಾದ್ರೆ (condition ಪ್ರಕಾರ
+    ಒಂದನ್ನ ಇಟ್ಕೊಂಡು, ಇನ್ನೊಂದನ್ನ ದೂರ ಮಾಡ್ಬೇಕಾದ್ರೆ)
+  → Relative order preserve ಮಾಡ್ಬೇಕಾದಾಗ
 
   ಇದೇ pattern ಬೇರೆ problems ನಲ್ಲಿ ಕಾಣಿಸುತ್ತೆ:
-  → Longest Consecutive Sequence (#128)
-  → Happy Number
-  → Cycle detection in graphs (visited set)
+  → Remove Duplicates from Sorted Array (#26)
+  → Remove Element
+  → Sort Colors (#75, extended to 3-way partition)
 
   Next time ಇಂತಹ problem ಬಂದ್ರೆ ನಾನು ಮೊದಲು ಇದನ್ನ think ಮಾಡ್ತೇನೆ:
-  → "ಬರೀ 'ಇದ್ಯಾ ಇಲ್ಲವಾ' ಪ್ರಶ್ನೆ ಬಂತು ಅಂದ್ರೆ, HashSet ಮೊದಲು
-      ಯೋಚಿಸು — pairing ಗಿಂತ ಸುಲಭ."
+  → "In-place reorder + preserve order ಕೇಳಿದ್ರೆ, write/read
+      pointer partition ಮೊದಲು ಯೋಚಿಸು."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🗣️ INTERVIEW ನಲ್ಲಿ ಹೇಗೆ EXPLAIN ಮಾಡಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   1. Understand:
-     "So I just need to know if ANY value appears twice — order
-      and position don't matter."
+     "So I need to push all zeros to the end, in-place, while
+      keeping the relative order of non-zero elements."
 
   2. Brute force:
-     "The naive approach compares every pair — O(n²), which
-      would TLE for n up to 10⁵."
+     "The naive approach builds a new array of non-zeros then
+      pads with zeros — O(n) extra space, but the problem wants
+      in-place."
 
   3. Optimize:
-     "Since it's a pure existence check, I can use a HashSet to
-      test membership in O(1) average as I scan once."
+     "I can use a write pointer for where the next non-zero
+      should go, and a read pointer that scans the whole array,
+      swapping non-zeros into place."
 
   4. Code:
-     "I'll keep a set of seen values; if the current number is
-      already in it, return True immediately."
+     "Whenever nums[read] != 0, I swap it with nums[write] and
+      advance write."
 
   5. Complexity:
-     "Time O(n) — one pass. Space O(n) — set can hold up to n items."
+     "Time O(n) — one pass. Space O(1) — in-place swaps only."
 
   ಮುಖ್ಯ: ಸುಮ್ಮನೆ ಕೂತು code ಬರೆಯಬೇಡ!
          Interviewer ಗೆ ನಿನ್ನ thinking process ಕಾಣಬೇಕು.
@@ -227,29 +233,27 @@
 
 
 # ═══════════════════════════════════════════════════════════════════
-# BRUTE FORCE — O(n²) Time | O(1) Space
+# BRUTE FORCE — O(n) Time | O(n) Space
 # ═══════════════════════════════════════════════════════════════════
-def contains_duplicate_brute(nums):
-    """ಇದು ಮೊದಲ ಆಲೋಚನೆ — every pair compare, simple but slow"""
-    n = len(nums)
-    for i in range(n):
-        for j in range(i + 1, n):
-            if nums[i] == nums[j]:
-                return True
-    return False
+def move_zeroes_brute(nums):
+    """ಇದು ಮೊದಲ ಆಲೋಚನೆ — new list build ಮಾಡಿ copy back, extra space"""
+    non_zeros = [x for x in nums if x != 0]
+    non_zeros += [0] * (len(nums) - len(non_zeros))
+    nums[:] = non_zeros
+    return nums
 
 
 # ═══════════════════════════════════════════════════════════════════
-# OPTIMAL — O(n) Time | O(n) Space
+# OPTIMAL — O(n) Time | O(1) Space
 # ═══════════════════════════════════════════════════════════════════
-def contains_duplicate(nums):
-    """ಇದು final answer — HashSet seen-before lookup, fast and clean"""
-    seen = set()
-    for num in nums:
-        if num in seen:
-            return True
-        seen.add(num)
-    return False
+def move_zeroes(nums):
+    """ಇದು final answer — write/read pointer in-place swap"""
+    write = 0
+    for read in range(len(nums)):
+        if nums[read] != 0:
+            nums[read], nums[write] = nums[write], nums[read]
+            write += 1
+    return nums
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -260,15 +264,15 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")   # Windows cp1252 can't print   otherwise
 
     # Test 1 — Basic example
-    assert contains_duplicate([1, 2, 3, 1]) is True
+    assert move_zeroes([0, 1, 0, 3, 12]) == [1, 3, 12, 0, 0]
 
-    # Test 2 — Edge case: no duplicates
-    assert contains_duplicate([1, 2, 3, 4]) is False
+    # Test 2 — Edge case: all zeros
+    assert move_zeroes([0, 0, 0]) == [0, 0, 0]
 
-    # Test 3 — Edge case: single element
-    assert contains_duplicate([1]) is False
+    # Test 3 — Edge case: no zeros
+    assert move_zeroes([1, 2, 3]) == [1, 2, 3]
 
-    # Test 4 — Tricky: negative numbers
-    assert contains_duplicate([-1, -2, -1]) is True
+    # Test 4 — Tricky: zero only at start
+    assert move_zeroes([0, 1, 2]) == [1, 2, 0]
 
     print("All tests passed!  ")
