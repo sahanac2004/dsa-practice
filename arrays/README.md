@@ -24,6 +24,7 @@ Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 | # | Problem | Technique | LC Link | File |
 |---|---------|-----------|---------|------|
 | 13 | 3Sum | two-pointers/opposite-ends | [LC #15](https://leetcode.com/problems/3sum/) | [medium/three_sum_15.py](medium/three_sum_15.py) |
+| 14 | 3Sum Closest | two-pointers/opposite-ends | [LC #16](https://leetcode.com/problems/3sum-closest/) | [medium/three_sum_closest_16.py](medium/three_sum_closest_16.py) |
 
 ## Hard
 
