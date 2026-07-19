@@ -23,7 +23,7 @@ Each file contains:
 
 | Topic              | Solved | In Progress | Total Target |
 |--------------------|--------|-------------|--------------|
-| Arrays             | 0      | 0           | 40           |
+| Arrays             | 12     | 0           | 40           |
 | Strings            | 0      | 0           | 20           |
 | Linked Lists       | 0      | 0           | 20           |
 | Trees              | 0      | 0           | 25           |
@@ -36,7 +36,7 @@ Each file contains:
 | Greedy             | 0      | 0           | 15           |
 | Backtracking       | 0      | 0           | 15           |
 | Bit Manipulation   | 0      | 0           | 10           |
-| **TOTAL**          | **0**  | **0**       | **260**      |
+| **TOTAL**          | **12** | **0**       | **260**      |
 
 ---
 
@@ -55,7 +55,10 @@ dsa-practice/
 │   └── ...
 │
 ├── arrays/               ← LC problems on arrays
-├── strings/              ← LC problems on strings
+│   ├── easy/
+│   ├── medium/
+│   └── hard/
+├── strings/              ← LC problems on strings (same easy/medium/hard split)
 ├── linked_lists/         ← LC problems on linked lists
 ├── trees/                ← LC problems on trees
 ├── graphs/               ← LC problems on graphs
@@ -67,6 +70,9 @@ dsa-practice/
 ├── greedy/               ← LC problems using greedy
 ├── backtracking/         ← LC problems using backtracking
 ├── bit_manipulation/     ← LC problems on bit manipulation
+│
+│   (every topic folder above follows the same easy/ medium/ hard/ split,
+│    created as soon as the first problem of that difficulty is added)
 │
 └── templates/
     ├── problem_template.py     ← Copy this for every new problem

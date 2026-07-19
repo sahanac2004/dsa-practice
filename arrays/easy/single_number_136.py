@@ -6,6 +6,29 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Every element in nums appears EXACTLY TWICE except for one
+  element which appears exactly ONCE. Find that single element.
+
+  Input : nums = [4, 1, 2, 1, 2]
+  Output: 4
+
+  Example 1 — basic:
+    Input : nums = [4, 1, 2, 1, 2]
+    Output: 4
+    Why?  : 1 and 2 each appear twice, 4 appears once
+
+  Example 2 — slightly tricky:
+    Input : nums = [-1, -1, -3]
+    Output: -3
+    Why?  : XOR works fine on negative numbers via two's complement
+
+  Constraints:
+    - Every element appears exactly twice, except one appears once
+    - Must run in O(n) time, O(1) extra space
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -58,29 +81,6 @@
   → Rules out hashmap counting (O(n) space) immediately
   → x^x=0 (a number cancels itself), x^0=x (identity)
   → XOR-ing the whole array: pairs cancel, lone value survives
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Every element in nums appears EXACTLY TWICE except for one
-  element which appears exactly ONCE. Find that single element.
-
-  Input : nums = [4, 1, 2, 1, 2]
-  Output: 4
-
-  Example 1 — basic:
-    Input : nums = [4, 1, 2, 1, 2]
-    Output: 4
-    Why?  : 1 and 2 each appear twice, 4 appears once
-
-  Example 2 — slightly tricky:
-    Input : nums = [-1, -1, -3]
-    Output: -3
-    Why?  : XOR works fine on negative numbers via two's complement
-
-  Constraints:
-    - Every element appears exactly twice, except one appears once
-    - Must run in O(n) time, O(1) extra space
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

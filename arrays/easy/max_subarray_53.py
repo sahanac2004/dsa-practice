@@ -6,6 +6,31 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Given an integer array nums, find the contiguous subarray
+  (at least one number) with the largest sum, and return that sum.
+
+  Input : nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+  Output: 6
+
+  Example 1 — basic:
+    Input : nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+    Output: 6
+    Why?  : subarray [4, -1, 2, 1] has the largest sum = 6
+
+  Example 2 — slightly tricky:
+    Input : nums = [-3, -1, -2]
+    Output: -1
+    Why?  : all negative, must still pick a non-empty subarray —
+            the LEAST negative single element wins
+
+  Constraints:
+    - At least one element must be included
+    - Array can be all negative
+    - 1 <= nums.length <= 10⁵
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -56,31 +81,6 @@
   → Contiguous subarray means order matters — can't sort/hash
   → At each index: extend if running sum still helps, else restart
   → dp[i] = max(nums[i], dp[i-1] + nums[i]), collapsed to O(1) space
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given an integer array nums, find the contiguous subarray
-  (at least one number) with the largest sum, and return that sum.
-
-  Input : nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-  Output: 6
-
-  Example 1 — basic:
-    Input : nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-    Output: 6
-    Why?  : subarray [4, -1, 2, 1] has the largest sum = 6
-
-  Example 2 — slightly tricky:
-    Input : nums = [-3, -1, -2]
-    Output: -1
-    Why?  : all negative, must still pick a non-empty subarray —
-            the LEAST negative single element wins
-
-  Constraints:
-    - At least one element must be included
-    - Array can be all negative
-    - 1 <= nums.length <= 10⁵
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

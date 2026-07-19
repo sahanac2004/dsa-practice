@@ -6,6 +6,30 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Two sorted arrays nums1 (m real elements, n trailing zero
+  placeholders) and nums2 (n elements). Merge nums2 INTO nums1
+  in-place so nums1 becomes one sorted array.
+
+  Input : nums1 = [1,2,3,0,0,0], m=3, nums2 = [2,5,6], n=3
+  Output: nums1 = [1,2,2,3,5,6]
+
+  Example 1 — basic:
+    Input : nums1=[1,2,3,0,0,0], m=3, nums2=[2,5,6], n=3
+    Output: [1,2,2,3,5,6]
+    Why?  : merging [1,2,3] and [2,5,6] gives this sorted result
+
+  Example 2 — slightly tricky:
+    Input : nums1=[0,0,0], m=0, nums2=[2,5,6], n=3
+    Output: [2,5,6]
+    Why?  : nums1 has no real elements — result is exactly nums2
+
+  Constraints:
+    - nums1 has exactly m + n total slots (trailing zeros are filler)
+    - Must merge IN-PLACE into nums1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -60,30 +84,6 @@
   → nums1 has trailing empty space sized for the merge
   → Writing from the BACK never overwrites data still needed
   → Classic merge step, run in reverse to respect in-place space
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Two sorted arrays nums1 (m real elements, n trailing zero
-  placeholders) and nums2 (n elements). Merge nums2 INTO nums1
-  in-place so nums1 becomes one sorted array.
-
-  Input : nums1 = [1,2,3,0,0,0], m=3, nums2 = [2,5,6], n=3
-  Output: nums1 = [1,2,2,3,5,6]
-
-  Example 1 — basic:
-    Input : nums1=[1,2,3,0,0,0], m=3, nums2=[2,5,6], n=3
-    Output: [1,2,2,3,5,6]
-    Why?  : merging [1,2,3] and [2,5,6] gives this sorted result
-
-  Example 2 — slightly tricky:
-    Input : nums1=[0,0,0], m=0, nums2=[2,5,6], n=3
-    Output: [2,5,6]
-    Why?  : nums1 has no real elements — result is exactly nums2
-
-  Constraints:
-    - nums1 has exactly m + n total slots (trailing zeros are filler)
-    - Must merge IN-PLACE into nums1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

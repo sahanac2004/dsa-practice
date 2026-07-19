@@ -6,6 +6,31 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A non-negative integer is represented as digits, MSB first, no
+  leading zeros (except the number 0 itself). Add one, return the
+  new digit array.
+
+  Input : digits = [1, 2, 3]
+  Output: [1, 2, 4]
+
+  Example 1 — basic:
+    Input : digits = [1, 2, 3]
+    Output: [1, 2, 4]
+    Why?  : 123 + 1 = 124, only the last digit changes
+
+  Example 2 — slightly tricky:
+    Input : digits = [9, 9]
+    Output: [1, 0, 0]
+    Why?  : 99 + 1 = 100 — carry propagates all the way, array GROWS
+
+  Constraints:
+    - digits[i] is a single digit 0-9
+    - No leading zeros in input (except digits == [0])
+    - Output array may need to be one element LONGER than input
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -61,31 +86,6 @@
   → digits is MSB-first, so +1 always affects the LAST digit first
   → Carry only propagates left while a digit rolls 9→0
   → The moment a digit doesn't roll over, we're done — early exit
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  A non-negative integer is represented as digits, MSB first, no
-  leading zeros (except the number 0 itself). Add one, return the
-  new digit array.
-
-  Input : digits = [1, 2, 3]
-  Output: [1, 2, 4]
-
-  Example 1 — basic:
-    Input : digits = [1, 2, 3]
-    Output: [1, 2, 4]
-    Why?  : 123 + 1 = 124, only the last digit changes
-
-  Example 2 — slightly tricky:
-    Input : digits = [9, 9]
-    Output: [1, 0, 0]
-    Why?  : 99 + 1 = 100 — carry propagates all the way, array GROWS
-
-  Constraints:
-    - digits[i] is a single digit 0-9
-    - No leading zeros in input (except digits == [0])
-    - Output array may need to be one element LONGER than input
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

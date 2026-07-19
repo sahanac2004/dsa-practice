@@ -6,6 +6,30 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Given numRows, generate the first numRows of Pascal's Triangle.
+  Each number is the sum of the two numbers directly above it
+  (edges of every row are always 1).
+
+  Input : numRows = 5
+  Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+  Example 1 — basic:
+    Input : numRows = 4
+    Output: [[1],[1,1],[1,2,1],[1,3,3,1]]
+    Why?  : each row's middle = sum of two values above it
+
+  Example 2 — slightly tricky:
+    Input : numRows = 1
+    Output: [[1]]
+    Why?  : just the single top row, no building needed
+
+  Constraints:
+    - 1 <= numRows <= 30
+    - row[i][j] = row[i-1][j-1] + row[i-1][j] for 0 < j < len(row)-1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -59,30 +83,6 @@
   → Every row is fully determined by the row before it
   → No need to recompute from scratch via factorials
   → Textbook bottom-up DP: state depends only on prior state
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given numRows, generate the first numRows of Pascal's Triangle.
-  Each number is the sum of the two numbers directly above it
-  (edges of every row are always 1).
-
-  Input : numRows = 5
-  Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
-
-  Example 1 — basic:
-    Input : numRows = 4
-    Output: [[1],[1,1],[1,2,1],[1,3,3,1]]
-    Why?  : each row's middle = sum of two values above it
-
-  Example 2 — slightly tricky:
-    Input : numRows = 1
-    Output: [[1]]
-    Why?  : just the single top row, no building needed
-
-  Constraints:
-    - 1 <= numRows <= 30
-    - row[i][j] = row[i-1][j-1] + row[i-1][j] for 0 < j < len(row)-1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

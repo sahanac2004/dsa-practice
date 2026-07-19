@@ -6,6 +6,29 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  nums contains n DISTINCT numbers from range [0, n] (n+1 possible
+  values). Find the ONE number missing from nums.
+
+  Input : nums = [3, 0, 1]
+  Output: 2
+
+  Example 1 — basic:
+    Input : nums = [3, 0, 1]
+    Output: 2
+    Why?  : range is [0,1,2,3] (n=3), nums has 3,0,1 — missing 2
+
+  Example 2 — slightly tricky:
+    Input : nums = [0, 1, 2]
+    Output: 3
+    Why?  : the missing number is n itself, the largest possible value
+
+  Constraints:
+    - nums.length == n, values drawn from [0, n]
+    - Exactly one value is missing, all present values are distinct
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -59,29 +82,6 @@
     against actual instead of hashing what's present
   → XOR every index AND every value: present numbers cancel,
     only the missing number survives
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  nums contains n DISTINCT numbers from range [0, n] (n+1 possible
-  values). Find the ONE number missing from nums.
-
-  Input : nums = [3, 0, 1]
-  Output: 2
-
-  Example 1 — basic:
-    Input : nums = [3, 0, 1]
-    Output: 2
-    Why?  : range is [0,1,2,3] (n=3), nums has 3,0,1 — missing 2
-
-  Example 2 — slightly tricky:
-    Input : nums = [0, 1, 2]
-    Output: 3
-    Why?  : the missing number is n itself, the largest possible value
-
-  Constraints:
-    - nums.length == n, values drawn from [0, n]
-    - Exactly one value is missing, all present values are distinct
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

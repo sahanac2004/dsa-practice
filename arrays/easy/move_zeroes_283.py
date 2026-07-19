@@ -6,6 +6,29 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Given an array nums, move all 0's to the end while maintaining
+  the RELATIVE ORDER of the non-zero elements. Must be in-place.
+
+  Input : nums = [0, 1, 0, 3, 12]
+  Output: [1, 3, 12, 0, 0]
+
+  Example 1 — basic:
+    Input : nums = [0, 1, 0, 3, 12]
+    Output: [1, 3, 12, 0, 0]
+    Why?  : non-zeros (1, 3, 12) keep their relative order
+
+  Example 2 — slightly tricky:
+    Input : nums = [0, 0, 1]
+    Output: [1, 0, 0]
+    Why?  : the single non-zero moves all the way to the front
+
+  Constraints:
+    - Must modify nums in-place (no returning a new array)
+    - Relative order of non-zero elements must be preserved
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -61,29 +84,6 @@
   → `write` pointer marks where the next non-zero should go,
     `read` pointer scans forward looking for non-zeros
   → Same partition skeleton as Remove Duplicates (#26), Sort Colors
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given an array nums, move all 0's to the end while maintaining
-  the RELATIVE ORDER of the non-zero elements. Must be in-place.
-
-  Input : nums = [0, 1, 0, 3, 12]
-  Output: [1, 3, 12, 0, 0]
-
-  Example 1 — basic:
-    Input : nums = [0, 1, 0, 3, 12]
-    Output: [1, 3, 12, 0, 0]
-    Why?  : non-zeros (1, 3, 12) keep their relative order
-
-  Example 2 — slightly tricky:
-    Input : nums = [0, 0, 1]
-    Output: [1, 0, 0]
-    Why?  : the single non-zero moves all the way to the front
-
-  Constraints:
-    - Must modify nums in-place (no returning a new array)
-    - Relative order of non-zero elements must be preserved
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

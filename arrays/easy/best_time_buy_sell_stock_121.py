@@ -6,6 +6,30 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  You're given prices[i] = stock price on day i. Buy on one day,
+  sell on a LATER day (one transaction only). Return max profit,
+  or 0 if no profit is possible.
+
+  Input : prices = [7, 1, 5, 3, 6, 4]
+  Output: 5
+
+  Example 1 — basic:
+    Input : prices = [7, 1, 5, 3, 6, 4]
+    Output: 5
+    Why?  : buy day1 (price=1), sell day4 (price=6), profit = 5
+
+  Example 2 — slightly tricky:
+    Input : prices = [7, 6, 4, 3, 1]
+    Output: 0
+    Why?  : strictly decreasing — no profitable buy/sell exists
+
+  Constraints:
+    - Must buy BEFORE you sell (sell index > buy index)
+    - Only one buy + one sell transaction total
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -60,30 +84,6 @@
   → Best profit if selling TODAY only depends on lowest price seen
     so far — no need to look ahead
   → Single pass, O(1) extra state → classic greedy "running min"
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  You're given prices[i] = stock price on day i. Buy on one day,
-  sell on a LATER day (one transaction only). Return max profit,
-  or 0 if no profit is possible.
-
-  Input : prices = [7, 1, 5, 3, 6, 4]
-  Output: 5
-
-  Example 1 — basic:
-    Input : prices = [7, 1, 5, 3, 6, 4]
-    Output: 5
-    Why?  : buy day1 (price=1), sell day4 (price=6), profit = 5
-
-  Example 2 — slightly tricky:
-    Input : prices = [7, 6, 4, 3, 1]
-    Output: 0
-    Why?  : strictly decreasing — no profitable buy/sell exists
-
-  Constraints:
-    - Must buy BEFORE you sell (sell index > buy index)
-    - Only one buy + one sell transaction total
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

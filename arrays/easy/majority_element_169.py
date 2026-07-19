@@ -6,6 +6,29 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Given nums of size n, return the MAJORITY element — the one
+  appearing MORE THAN ⌊n/2⌋ times. Always assume it exists.
+
+  Input : nums = [2, 2, 1, 1, 1, 2, 2]
+  Output: 2
+
+  Example 1 — basic:
+    Input : nums = [2, 2, 1, 1, 1, 2, 2]
+    Output: 2
+    Why?  : 2 appears 4 times, n=7, ⌊7/2⌋=3, and 4 > 3
+
+  Example 2 — slightly tricky:
+    Input : nums = [3, 3, 3, 3]
+    Output: 3
+    Why?  : trivially the majority — every element is the same
+
+  Constraints:
+    - Majority element is GUARANTEED to exist
+    - n >= 1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -60,29 +83,6 @@
   → Majority element GUARANTEED to exist — makes voting safe
   → It can survive being "cancelled out" by every other element
   → O(n) time, O(1) space — beats hashmap and sorting both
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given nums of size n, return the MAJORITY element — the one
-  appearing MORE THAN ⌊n/2⌋ times. Always assume it exists.
-
-  Input : nums = [2, 2, 1, 1, 1, 2, 2]
-  Output: 2
-
-  Example 1 — basic:
-    Input : nums = [2, 2, 1, 1, 1, 2, 2]
-    Output: 2
-    Why?  : 2 appears 4 times, n=7, ⌊7/2⌋=3, and 4 > 3
-
-  Example 2 — slightly tricky:
-    Input : nums = [3, 3, 3, 3]
-    Output: 3
-    Why?  : trivially the majority — every element is the same
-
-  Constraints:
-    - Majority element is GUARANTEED to exist
-    - n >= 1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

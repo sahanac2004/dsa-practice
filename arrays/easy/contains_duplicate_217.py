@@ -6,6 +6,29 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Given an integer array nums, return True if any value appears
+  at least twice, and False if every element is distinct.
+
+  Input : nums = [1, 2, 3, 1]
+  Output: True
+
+  Example 1 — basic:
+    Input : nums = [1, 2, 3, 1]
+    Output: True
+    Why?  : 1 appears at index 0 AND index 3
+
+  Example 2 — slightly tricky:
+    Input : nums = [1, 2, 3, 4]
+    Output: False
+    Why?  : all elements are distinct
+
+  Constraints:
+    - 1 <= nums.length <= 10⁵
+    - Values can repeat any number of times, order doesn't matter
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -56,29 +79,6 @@
   → Pure existence question — no indices, no pairing
   → O(1) average "have I seen this before?" checks
   → Simpler cousin of the complement-lookup pattern from Two Sum
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given an integer array nums, return True if any value appears
-  at least twice, and False if every element is distinct.
-
-  Input : nums = [1, 2, 3, 1]
-  Output: True
-
-  Example 1 — basic:
-    Input : nums = [1, 2, 3, 1]
-    Output: True
-    Why?  : 1 appears at index 0 AND index 3
-
-  Example 2 — slightly tricky:
-    Input : nums = [1, 2, 3, 4]
-    Output: False
-    Why?  : all elements are distinct
-
-  Constraints:
-    - 1 <= nums.length <= 10⁵
-    - Values can repeat any number of times, order doesn't matter
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)

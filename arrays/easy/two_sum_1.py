@@ -6,6 +6,31 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Array ಕೊಡ್ತಾರೆ ಮತ್ತು ಒಂದು target number ಕೊಡ್ತಾರೆ.
+  ಯಾವ 2 numbers add ಮಾಡಿದ್ರೆ target ಸಿಗತ್ತೆ ಅವುಗಳ
+  indices return ಮಾಡು. Exactly one answer always ಇರತ್ತೆ.
+
+  Input : nums array + target integer
+  Output: [index1, index2] such that nums[i] + nums[j] == target
+
+  Example 1:
+    Input : nums = [2, 7, 11, 15], target = 9
+    Output: [0, 1]
+    Why?  : nums[0] + nums[1] = 2 + 7 = 9 ✓
+
+  Example 2 (tricky — answer not at start):
+    Input : nums = [3, 2, 4], target = 6
+    Output: [1, 2]
+    Why?  : nums[1] + nums[2] = 2 + 4 = 6 ✓
+
+  Constraints:
+    - 2 <= nums.length <= 10^4
+    - Exactly one valid answer exists
+    - Cannot use same element twice (different indices)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -54,31 +79,6 @@
   → Instead of searching the whole array again (O(n) search),
     store what you've seen → O(1) lookup
   → Trade space O(n) for time O(n) — classic pattern
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Array ಕೊಡ್ತಾರೆ ಮತ್ತು ಒಂದು target number ಕೊಡ್ತಾರೆ.
-  ಯಾವ 2 numbers add ಮಾಡಿದ್ರೆ target ಸಿಗತ್ತೆ ಅವುಗಳ
-  indices return ಮಾಡು. Exactly one answer always ಇರತ್ತೆ.
-
-  Input : nums array + target integer
-  Output: [index1, index2] such that nums[i] + nums[j] == target
-
-  Example 1:
-    Input : nums = [2, 7, 11, 15], target = 9
-    Output: [0, 1]
-    Why?  : nums[0] + nums[1] = 2 + 7 = 9 ✓
-
-  Example 2 (tricky — answer not at start):
-    Input : nums = [3, 2, 4], target = 6
-    Output: [1, 2]
-    Why?  : nums[1] + nums[2] = 2 + 4 = 6 ✓
-
-  Constraints:
-    - 2 <= nums.length <= 10^4
-    - Exactly one valid answer exists
-    - Cannot use same element twice (different indices)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION

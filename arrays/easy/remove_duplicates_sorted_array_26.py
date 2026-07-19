@@ -6,6 +6,30 @@
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📘 PROBLEM UNDERSTANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Given a sorted array nums, remove duplicates IN-PLACE so each
+  unique element appears once. Return k = number of unique
+  elements; the first k slots must hold them in order.
+
+  Input : nums = [1, 1, 2, 2, 3]
+  Output: k = 3, nums[:3] = [1, 2, 3]
+
+  Example 1 — basic:
+    Input : nums = [1, 1, 2, 2, 3]
+    Output: k=3, nums[:3] = [1, 2, 3]
+    Why?  : unique values are 1, 2, 3 — placed at the front
+
+  Example 2 — slightly tricky:
+    Input : nums = [1, 1, 1, 1]
+    Output: k=1, nums[:1] = [1]
+    Why?  : only one unique value exists
+
+  Constraints:
+    - nums is already SORTED in non-decreasing order
+    - Must modify in-place, O(1) extra space
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  🧠 KANGLISH THINKING — ಹೇಗೆ ಯೋಚಿಸಬೇಕು
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -60,30 +84,6 @@
     hashset needed to detect repeats
   → `write` pointer for next unique slot, `read` scans forward
   → Same write/read partition skeleton as Move Zeroes (#283)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- 📘 PROBLEM UNDERSTANDING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Given a sorted array nums, remove duplicates IN-PLACE so each
-  unique element appears once. Return k = number of unique
-  elements; the first k slots must hold them in order.
-
-  Input : nums = [1, 1, 2, 2, 3]
-  Output: k = 3, nums[:3] = [1, 2, 3]
-
-  Example 1 — basic:
-    Input : nums = [1, 1, 2, 2, 3]
-    Output: k=3, nums[:3] = [1, 2, 3]
-    Why?  : unique values are 1, 2, 3 — placed at the front
-
-  Example 2 — slightly tricky:
-    Input : nums = [1, 1, 1, 1]
-    Output: k=1, nums[:1] = [1]
-    Why?  : only one unique value exists
-
-  Constraints:
-    - nums is already SORTED in non-decreasing order
-    - Must modify in-place, O(1) extra space
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  💡 INTUITION (How to think)
