@@ -25,6 +25,7 @@ Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 |---|---------|-----------|---------|------|
 | 13 | 3Sum | two-pointers/opposite-ends | [LC #15](https://leetcode.com/problems/3sum/) | [medium/three_sum_15.py](medium/three_sum_15.py) |
 | 14 | 3Sum Closest | two-pointers/opposite-ends | [LC #16](https://leetcode.com/problems/3sum-closest/) | [medium/three_sum_closest_16.py](medium/three_sum_closest_16.py) |
+| 15 | Product of Array Except Self | prefix-sum/suffix | [LC #238](https://leetcode.com/problems/product-of-array-except-self/) | [medium/product_except_self_238.py](medium/product_except_self_238.py) |
 
 ## Hard
 
