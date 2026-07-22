@@ -28,8 +28,19 @@ Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 | 15 | Product of Array Except Self | prefix-sum/suffix | [LC #238](https://leetcode.com/problems/product-of-array-except-self/) | [medium/product_except_self_238.py](medium/product_except_self_238.py) |
 | 16 | Container With Most Water | two-pointers/opposite-ends | [LC #11](https://leetcode.com/problems/container-with-most-water/) | [medium/container_most_water_11.py](medium/container_most_water_11.py) |
 | 17 | Maximum Product Subarray | dp/track-min-max | [LC #152](https://leetcode.com/problems/maximum-product-subarray/) | [medium/max_product_subarray_152.py](medium/max_product_subarray_152.py) |
+| 18 | Find Minimum in Rotated Sorted Array | binary-search/rotated | [LC #153](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | [medium/find_min_rotated_sorted_array_153.py](medium/find_min_rotated_sorted_array_153.py) |
+| 19 | Search in Rotated Sorted Array | binary-search/rotated | [LC #33](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [medium/search_rotated_sorted_array_33.py](medium/search_rotated_sorted_array_33.py) |
+| 20 | Subarray Sum Equals K | prefix-sum/hashmap | [LC #560](https://leetcode.com/problems/subarray-sum-equals-k/) | [medium/subarray_sum_equals_k_560.py](medium/subarray_sum_equals_k_560.py) |
+| 21 | Longest Consecutive Sequence | hashset | [LC #128](https://leetcode.com/problems/longest-consecutive-sequence/) | [medium/longest_consecutive_sequence_128.py](medium/longest_consecutive_sequence_128.py) |
+| 22 | Sort Colors | two-pointers/3-way | [LC #75](https://leetcode.com/problems/sort-colors/) | [medium/sort_colors_75.py](medium/sort_colors_75.py) |
+| 23 | Spiral Matrix | matrix/simulation | [LC #54](https://leetcode.com/problems/spiral-matrix/) | [medium/spiral_matrix_54.py](medium/spiral_matrix_54.py) |
+| 24 | Rotate Image | matrix/transpose-reverse | [LC #48](https://leetcode.com/problems/rotate-image/) | [medium/rotate_image_48.py](medium/rotate_image_48.py) |
+| 25 | Set Matrix Zeroes | matrix/in-place-marking | [LC #73](https://leetcode.com/problems/set-matrix-zeroes/) | [medium/set_matrix_zeroes_73.py](medium/set_matrix_zeroes_73.py) |
+| 26 | Jump Game | greedy/jump | [LC #55](https://leetcode.com/problems/jump-game/) | [medium/jump_game_55.py](medium/jump_game_55.py) |
+| 27 | Jump Game II | greedy/jump | [LC #45](https://leetcode.com/problems/jump-game-ii/) | [medium/jump_game_ii_45.py](medium/jump_game_ii_45.py) |
 
 ## Hard
 
 | # | Problem | Technique | LC Link | File |
 |---|---------|-----------|---------|------|
+
