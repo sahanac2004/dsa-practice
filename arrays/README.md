@@ -2,7 +2,7 @@
 
 Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 
-## Easy
+## 🟢 Easy
 
 | # | Problem | Technique | LC Link | File |
 |---|---------|-----------|---------|------|
@@ -19,7 +19,7 @@ Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 | 11 | Pascal's Triangle | 2d-array/dp | [LC #118](https://leetcode.com/problems/pascals-triangle/) | [easy/pascals_triangle_118.py](easy/pascals_triangle_118.py) |
 | 12 | Majority Element | boyer-moore-voting | [LC #169](https://leetcode.com/problems/majority-element/) | [easy/majority_element_169.py](easy/majority_element_169.py) |
 
-## Medium
+## 🟡 Medium
 
 | # | Problem | Technique | LC Link | File |
 |---|---------|-----------|---------|------|
@@ -38,9 +38,22 @@ Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 | 25 | Set Matrix Zeroes | matrix/in-place-marking | [LC #73](https://leetcode.com/problems/set-matrix-zeroes/) | [medium/set_matrix_zeroes_73.py](medium/set_matrix_zeroes_73.py) |
 | 26 | Jump Game | greedy/jump | [LC #55](https://leetcode.com/problems/jump-game/) | [medium/jump_game_55.py](medium/jump_game_55.py) |
 | 27 | Jump Game II | greedy/jump | [LC #45](https://leetcode.com/problems/jump-game-ii/) | [medium/jump_game_ii_45.py](medium/jump_game_ii_45.py) |
+| 28 | Merge Intervals | greedy/intervals | [LC #56](https://leetcode.com/problems/merge-intervals/) | [medium/merge_intervals_56.py](medium/merge_intervals_56.py) |
+| 29 | Insert Interval | greedy/intervals | [LC #57](https://leetcode.com/problems/insert-interval/) | [medium/insert_interval_57.py](medium/insert_interval_57.py) |
+| 30 | Find the Duplicate Number | two-pointers/slow-fast | [LC #287](https://leetcode.com/problems/find-the-duplicate-number/) | [medium/find_duplicate_number_287.py](medium/find_duplicate_number_287.py) |
+| 31 | Maximum Points You Can Obtain | sliding-window/fixed | [LC #1423](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/) | [medium/max_points_cards_1423.py](medium/max_points_cards_1423.py) |
+| 32 | 4Sum | two-pointers/opposite-ends | [LC #18](https://leetcode.com/problems/4sum/) | [medium/four_sum_18.py](medium/four_sum_18.py) |
+| 33 | Next Permutation | two-pointers/array | [LC #31](https://leetcode.com/problems/next-permutation/) | [medium/next_permutation_31.py](medium/next_permutation_31.py) |
+| 34 | Trapping Rain Water | two-pointers/prefix-max | [LC #42](https://leetcode.com/problems/trapping-rain-water/) | [medium/trapping_rain_water_42.py](medium/trapping_rain_water_42.py) |
 
-## Hard
+## 🔴 Hard
 
 | # | Problem | Technique | LC Link | File |
 |---|---------|-----------|---------|------|
-
+| 35 | Best Time to Buy Sell Stock III | dp/state-machine | [LC #123](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) | [hard/best_time_stock_iii_123.py](hard/best_time_stock_iii_123.py) |
+| 36 | Best Time to Buy Sell Stock IV | dp/state-machine | [LC #188](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) | [hard/best_time_stock_iv_188.py](hard/best_time_stock_iv_188.py) |
+| 37 | Largest Rectangle in Histogram | monotonic-stack | [LC #84](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [hard/largest_rectangle_histogram_84.py](hard/largest_rectangle_histogram_84.py) |
+| 38 | Sliding Window Maximum | monotonic-deque | [LC #239](https://leetcode.com/problems/sliding-window-maximum/) | [hard/sliding_window_maximum_239.py](hard/sliding_window_maximum_239.py) |
+| 39 | First Missing Positive | array-as-hashmap | [LC #41](https://leetcode.com/problems/first-missing-positive/) | [hard/first_missing_positive_41.py](hard/first_missing_positive_41.py) |
+| 40 | Count of Smaller Numbers After Self | merge-sort/inversion | [LC #315](https://leetcode.com/problems/count-of-smaller-numbers-after-self/) | [hard/count_smaller_numbers_315.py](hard/count_smaller_numbers_315.py) |
+| 41 | Reverse Pairs | merge-sort/inversion | [LC #493](https://leetcode.com/problems/reverse-pairs/) | [hard/reverse_pairs_493.py](hard/reverse_pairs_493.py) |
