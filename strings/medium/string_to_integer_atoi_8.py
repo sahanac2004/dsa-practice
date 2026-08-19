@@ -326,7 +326,8 @@ def my_atoi_brute(s):
     number prefix extract madi, int() madi clamp madu
     """
     import re
-
+    INT_MAX = 2 ** 31 - 1       # 2147483647
+    INT_MIN = -2 ** 31          # -2147483648
     match = re.match(r'^\s*([+-]?\d+)', s)
     if not match:
         return 0
@@ -351,7 +352,8 @@ def my_atoi(s):
     """
     i = 0
     n = len(s)
-
+    INT_MAX = 2 ** 31 - 1       # 2147483647
+    INT_MIN = -2 ** 31          # -2147483648
     # Step 1: skip leading whitespace
     while i < n and s[i] == ' ':
         i += 1
