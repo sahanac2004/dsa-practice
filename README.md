@@ -23,8 +23,8 @@ Each file contains:
 
 | Topic              | Solved | In Progress | Total Target |
 |--------------------|--------|-------------|--------------|
-| Arrays             | 41    | 0           | 41          |
-| Strings            | 0      | 0           | 20           |
+| Arrays             | 47    | 0           | 47          |
+| Strings            | 28      | 0           | 28           |
 | Linked Lists       | 0      | 0           | 20           |
 | Trees              | 0      | 0           | 25           |
 | Graphs             | 0      | 0           | 25           |
@@ -36,7 +36,7 @@ Each file contains:
 | Greedy             | 0      | 0           | 15           |
 | Backtracking       | 0      | 0           | 15           |
 | Bit Manipulation   | 0      | 0           | 10           |
-| **TOTAL**          | **41** | **0**       | **261**      |
+| **TOTAL**          | **75** | **0**       | **275**      |
 
 ---
 
