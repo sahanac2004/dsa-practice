@@ -40,20 +40,26 @@ Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 | 27 | Jump Game II | greedy/jump | [LC #45](https://leetcode.com/problems/jump-game-ii/) | [medium/jump_game_ii_45.py](medium/jump_game_ii_45.py) |
 | 28 | Merge Intervals | greedy/intervals | [LC #56](https://leetcode.com/problems/merge-intervals/) | [medium/merge_intervals_56.py](medium/merge_intervals_56.py) |
 | 29 | Insert Interval | greedy/intervals | [LC #57](https://leetcode.com/problems/insert-interval/) | [medium/insert_interval_57.py](medium/insert_interval_57.py) |
-| 30 | Find the Duplicate Number | two-pointers/slow-fast | [LC #287](https://leetcode.com/problems/find-the-duplicate-number/) | [medium/find_duplicate_number_287.py](medium/find_duplicate_number_287.py) |
+| 30 | Find the Duplicate Number | two-pointers/slow-fast | [LC #287](https://leetcode.com/problems/find-the-duplicate-number/) | [medium/find_the_duplicate_number_287.py](medium/find_the_duplicate_number_287.py) |
 | 31 | Maximum Points You Can Obtain | sliding-window/fixed | [LC #1423](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/) | [medium/max_points_cards_1423.py](medium/max_points_cards_1423.py) |
 | 32 | 4Sum | two-pointers/opposite-ends | [LC #18](https://leetcode.com/problems/4sum/) | [medium/four_sum_18.py](medium/four_sum_18.py) |
 | 33 | Next Permutation | two-pointers/array | [LC #31](https://leetcode.com/problems/next-permutation/) | [medium/next_permutation_31.py](medium/next_permutation_31.py) |
 | 34 | Trapping Rain Water | two-pointers/prefix-max | [LC #42](https://leetcode.com/problems/trapping-rain-water/) | [medium/trapping_rain_water_42.py](medium/trapping_rain_water_42.py) |
+| 35 | Group Anagrams | hashmap/grouping | [LC #49](https://leetcode.com/problems/group-anagrams/) | [medium/group_anagrams_49.py](medium/group_anagrams_49.py) |
+| 36 | Encode and Decode Strings | string-encoding/length-prefix | [LC #271](https://leetcode.com/problems/encode-and-decode-strings/) | [medium/encode_decode_strings_271.py](medium/encode_decode_strings_271.py) |
+| 37 | Valid Sudoku | hashset/matrix | [LC #36](https://leetcode.com/problems/valid-sudoku/) | [medium/valid_sudoku_36.py](medium/valid_sudoku_36.py) |
+| 38 | Rotate Array | array/reversal-trick | [LC #189](https://leetcode.com/problems/rotate-array/) | [medium/rotate_array_189.py](medium/rotate_array_189.py) |
+| 39 | Majority Element II | boyer-moore-voting/extended | [LC #229](https://leetcode.com/problems/majority-element-ii/) | [medium/majority_element_ii_229.py](medium/majority_element_ii_229.py) |
+| 40 | Top K Frequent Elements | bucket-sort | [LC #347](https://leetcode.com/problems/top-k-frequent-elements/) | [medium/top_k_frequent_347.py](medium/top_k_frequent_347.py) |
 
 ## 🔴 Hard
 
 | # | Problem | Technique | LC Link | File |
 |---|---------|-----------|---------|------|
-| 35 | Best Time to Buy Sell Stock III | dp/state-machine | [LC #123](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) | [hard/best_time_stock_iii_123.py](hard/best_time_stock_iii_123.py) |
-| 36 | Best Time to Buy Sell Stock IV | dp/state-machine | [LC #188](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) | [hard/best_time_stock_iv_188.py](hard/best_time_stock_iv_188.py) |
-| 37 | Largest Rectangle in Histogram | monotonic-stack | [LC #84](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [hard/largest_rectangle_histogram_84.py](hard/largest_rectangle_histogram_84.py) |
-| 38 | Sliding Window Maximum | monotonic-deque | [LC #239](https://leetcode.com/problems/sliding-window-maximum/) | [hard/sliding_window_maximum_239.py](hard/sliding_window_maximum_239.py) |
-| 39 | First Missing Positive | array-as-hashmap | [LC #41](https://leetcode.com/problems/first-missing-positive/) | [hard/first_missing_positive_41.py](hard/first_missing_positive_41.py) |
-| 40 | Count of Smaller Numbers After Self | merge-sort/inversion | [LC #315](https://leetcode.com/problems/count-of-smaller-numbers-after-self/) | [hard/count_smaller_numbers_315.py](hard/count_smaller_numbers_315.py) |
-| 41 | Reverse Pairs | merge-sort/inversion | [LC #493](https://leetcode.com/problems/reverse-pairs/) | [hard/reverse_pairs_493.py](hard/reverse_pairs_493.py) |
+| 41 | Best Time to Buy Sell Stock III | dp/state-machine | [LC #123](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) | [hard/best_time_buy_sell_stock_iii_123.py](hard/best_time_buy_sell_stock_iii_123.py) |
+| 42 | Best Time to Buy Sell Stock IV | dp/state-machine | [LC #188](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) | [hard/best_time_buy_sell_stock_iv_188.py](hard/best_time_buy_sell_stock_iv_188.py) |
+| 43 | Largest Rectangle in Histogram | monotonic-stack | [LC #84](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [hard/largest_rectangle_histogram_84.py](hard/largest_rectangle_histogram_84.py) |
+| 44 | Sliding Window Maximum | monotonic-deque | [LC #239](https://leetcode.com/problems/sliding-window-maximum/) | [hard/sliding_window_maximum_239.py](hard/sliding_window_maximum_239.py) |
+| 45 | First Missing Positive | array-as-hashmap | [LC #41](https://leetcode.com/problems/first-missing-positive/) | [hard/first_missing_positive_41.py](hard/first_missing_positive_41.py) |
+| 46 | Count of Smaller Numbers After Self | merge-sort/inversion | [LC #315](https://leetcode.com/problems/count-of-smaller-numbers-after-self/) | [hard/count_smaller_315.py](hard/count_smaller_315.py) |
+| 47 | Reverse Pairs | merge-sort/inversion | [LC #493](https://leetcode.com/problems/reverse-pairs/) | [hard/reverse_pairs_493.py](hard/reverse_pairs_493.py) |
