@@ -15,7 +15,7 @@ Files are organized by difficulty subfolder: `easy/`, `medium/`, `hard/`.
 | 7 | Rotate String (Check String Rotation) | string-concatenation trick | [LC #796](https://leetcode.com/problems/rotate-string/) | [easy/check_string_rotation_796.py](easy/check_string_rotation_796.py) |
 | 8 | Remove Outermost Parentheses | stack/counter | [LC #1021](https://leetcode.com/problems/remove-outermost-parentheses/) | [easy/remove_outermost_parentheses_1021.py](easy/remove_outermost_parentheses_1021.py) |
 | 9 | Maximum Nesting Depth of the Parentheses | stack/counter | [LC #1614](https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/) | [easy/maximum_nesting_depth_parentheses_1614.py](easy/maximum_nesting_depth_parentheses_1614.py) |
-| 10 | Largest Odd Number in String | traversal | [LC #1903](https://leetcode.com/problems/largest-odd-number-in-string/) | [easy/largest_odd_number_in_string_1903.p](easy/largest_odd_number_in_string_1903.p) ⚠️ |
+| 10 | Largest Odd Number in String | traversal | [LC #1903](https://leetcode.com/problems/largest-odd-number-in-string/) | [easy/largest_odd_number_in_string_1903.p](easy/largest_odd_number_in_string_1903.p) |
 
 ## 🟡 Medium
 
