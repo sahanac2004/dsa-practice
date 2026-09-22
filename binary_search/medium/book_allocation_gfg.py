@@ -1,10 +1,10 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║  BOOK ALLOCATION PROBLEM                                         ║
-║  GFG Classic  |  Difficulty: Medium  |  Topic: Binary Search    ║
-║  Link: https://www.geeksforgeeks.org/allocate-minimum-number-   ║
+║  GFG Classic  |  Difficulty: Medium  |  Topic: Binary Search     ║
+║  Link: https://www.geeksforgeeks.org/allocate-minimum-number-    ║
 ║        pages/                                                    ║
-║  Also known as: Allocate Minimum Pages                          ║
+║  Also known as: Allocate Minimum Pages                           ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
