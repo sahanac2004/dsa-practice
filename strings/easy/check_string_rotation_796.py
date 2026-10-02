@@ -1,9 +1,9 @@
 """
-╔════════════════════════════════════════════════════════════════════╗
-║  CHECK IF STRING IS ROTATION OF ANOTHER (ROTATE STRING)            ║
+╔═════════════════════════════════════════════════════════════════════╗
+║  CHECK IF STRING IS ROTATION OF ANOTHER (ROTATE STRING)             ║
 ║  LeetCode #796  |  Difficulty: Easy  |  Topic: Strings/Concatenation║
-║  Link: https://leetcode.com/problems/rotate-string/                ║
-╚════════════════════════════════════════════════════════════════════╝
+║  Link: https://leetcode.com/problems/rotate-string/                 ║
+╚═════════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  📘 SECTION 1 — PROBLEM UNDERSTANDING
@@ -47,10 +47,10 @@
 
   ಹಂತ 1 — Problem ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳಿ
   ┌─────────────────────────────────────────────────────────┐
-  │  Input ಏನು ಕೊಡ್ತಾರೆ?  →  ಎರಡು strings s, goal            │
+  │  Input ಏನು ಕೊಡ್ತಾರೆ?  →  ಎರಡು strings s, goal             │
   │  Output ಏನು ಬೇಕು?     →  goal, s ರ ಯಾವುದಾದ್ರೂ            │
-  │                           rotation ಆಗಿದ್ಯಾ ಅಂತ ಚೆಕ್       │
-  │  Constraints ಏನಿದೆ?   →  length ಬೇರೆ ಇದ್ರೆ ಸಾಧ್ಯನೇ ಇಲ್ಲ  │
+  │                           rotation ಆಗಿದ್ಯಾ ಅಂತ ಚೆಕ್        │
+  │  Constraints ಏನಿದೆ?   →  length ಬೇರೆ ಇದ್ರೆ ಸಾಧ್ಯನೇ ಇಲ್ಲ        │
   └─────────────────────────────────────────────────────────┘
 
   ಹಂತ 2 — ಮೊದಲ simple idea ಏನು?
