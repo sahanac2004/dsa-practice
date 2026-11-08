@@ -1,8 +1,8 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║  LRU CACHE                                                        ║
-║  LeetCode #146  |  Difficulty: Hard  |  Topic: Linked Lists    ║
-║  Link: https://leetcode.com/problems/lru-cache/                 ║
+║  LRU CACHE                                                       ║
+║  LeetCode #146  |  Difficulty: Hard  |  Topic: Linked Lists      ║
+║  Link: https://leetcode.com/problems/lru-cache/                  ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
