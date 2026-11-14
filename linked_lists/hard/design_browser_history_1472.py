@@ -1,7 +1,7 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║  DESIGN BROWSER HISTORY                                           ║
-║  LeetCode #1472  |  Difficulty: Medium  |  Topic: Linked Lists ║
+║  LeetCode #1472  |  Difficulty: Medium  |  Topic: Linked Lists   ║
 ║  (Grouped here with Hard per the curriculum checklist)          ║
 ║  Link: https://leetcode.com/problems/                           ║
 ║        design-browser-history/                                   ║
